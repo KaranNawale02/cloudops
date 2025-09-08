@@ -1,0 +1,7 @@
+{"asctime": "2025-09-08 15:31:40,788", "name": "uvicorn.error", "levelname": "INFO", "message": "Application startup complete."}
+{"asctime": "2025-09-08 15:31:40,789", "name": "uvicorn.error", "levelname": "INFO", "message": "Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)", "color_message": "Uvicorn running on \u001b[1m%s://%s:%d\u001b[0m (Press CTRL+C to quit)"}
+{"asctime": "2025-09-08 15:31:54,135", "name": "backend", "levelname": "INFO", "message": "Hello From Root"}
+{"asctime": "2025-09-08 15:45:51,718", "name": "uvicorn.error", "levelname": "INFO", "message": "Shutting down"}
+{"asctime": "2025-09-08 15:45:51,819", "name": "uvicorn.error", "levelname": "INFO", "message": "Waiting for application shutdown."}
+{"asctime": "2025-09-08 15:45:51,820", "name": "uvicorn.error", "levelname": "INFO", "message": "Application shutdown complete."}
+{"asctime": "2025-09-08 15:45:51,821", "name": "uvicorn.error", "levelname": "INFO", "message": "Finished server process [154489]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app-deployment
+  labels:
+    app: fastapi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-app # This label is used by the Service and for log scraping
+    spec:
+      containers:
+      - name: fastapi-container
+        image: fastapi-app:latest # This will be updated by the Jenkins pipeline
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: log-storage
+          mountPath: /app/logs
+      volumes:
+      - name: log-storage
+        persistentVolumeClaim:
+          claimName: fastapi-logs-pvc
