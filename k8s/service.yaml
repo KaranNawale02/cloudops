@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 8000
       targetPort: 8000
-      nodePort: 30007 # Access the service via http://<minikube-ip>:30007
+      nodePort: 30007
