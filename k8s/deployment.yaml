@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fastapi-container
-        image: fastapi-app:latest
+        image: karannawale/cloudops:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
