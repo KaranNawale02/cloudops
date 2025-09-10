@@ -23,3 +23,14 @@ async def create_valid_request(request:Request):
             }}
     return JSONResponse(status_code=200,
                         content=data)
+
+@router.get("/username")
+async def create_valid_request(request:Request):
+    data = {"status": True,
+            "message": "data found",
+            "data": {
+                "name": "karan",
+                "age": 21,
+            }}
+    return JSONResponse(status_code=200,
+                        content=data)
