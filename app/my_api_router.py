@@ -6,6 +6,7 @@ router = APIRouter()
 @router.post("/create_internal_server_error")
 async def create_internal_server_error(request:Request):
     request.app.logger.info("[]")
+    request.app.logger.error("Internal server error no ")
     data = {"status": False,
             "message": "Internal Server Error",
             "data": None}
