@@ -1,4 +1,0 @@
-2025-09-08 15:31:54,135 INFO uvicorn.access GET / 200
-2025-09-08 15:31:54,170 INFO uvicorn.access GET /favicon.ico 404
-2025-09-08 15:31:58,337 INFO uvicorn.access GET /docs 200
-2025-09-08 15:31:59,136 INFO uvicorn.access GET /openapi.json 200
