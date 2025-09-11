@@ -4,6 +4,22 @@ from fastapi import FastAPI, Request
 from my_api_router import router
 from project_logger import LogConfig
 import logging
+import psycopg2
+import psycopg_pool
+
+conn_string = 'postgresql://admin:secret@192.168.2.56:5432/postgres'
+
+class DBConnectionPool:
+    def __init__(self):
+        self.psyco_async_pool: psycopg_pool.AsyncConnectionPool = psycopg_pool.AsyncConnectionPool(
+            conn_string,
+            min_size=1,
+            max_size=5,
+            open=False
+        )
+
+    async def close(self):
+        await self.psyco_async_pool.close()
 
 
 @asynccontextmanager
@@ -13,11 +29,12 @@ async def lifespan(app: FastAPI):
     app.logger = logging.getLogger("backend")
 
     # DB connection here
-    app.db_connection = "This is db connection"
+    app.db_conn = DBConnectionPool()
+    await app.db_conn.psyco_async_pool.open()
     yield
 
     # DB connection closed
-    app.db_connection = None
+    await app.db_conn.close()
 
 
 app = FastAPI(lifespan=lifespan,
