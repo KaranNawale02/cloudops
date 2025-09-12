@@ -7,7 +7,7 @@ import logging
 import psycopg2
 import psycopg_pool
 
-conn_string = 'postgresql://admin:secret@192.168.2.56:5432/postgres'
+conn_string = 'postgresql://admin:admin@192.168.2.56:5432/postgres'
 
 class DBConnectionPool:
     def __init__(self):
@@ -26,7 +26,7 @@ class DBConnectionPool:
 async def lifespan(app: FastAPI):
     # Setting up application logger
     LogConfig.setup_logging()
-    app.logger = logging.getLogger("backend")
+    app.logger = logging.getLogger("beacon")
 
     # DB connection here
     app.db_conn = DBConnectionPool()
@@ -39,7 +39,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan,
               debug=True,
-              title="MyProject")
+              title="Beacon")
 
 app.include_router(router=router,tags=["Router"])
 
